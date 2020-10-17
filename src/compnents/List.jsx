@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { nanoid } from 'nanoid';
 
 const List = ({ itemsList, onEdit, onRemove, filterSearchValue }) => {

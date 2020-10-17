@@ -9,8 +9,8 @@ function App() {
     <Fragment>
       <Router>
         <nav className="nav">
-          <NavLink to="/first" className="nav-link" activeClassName="nav-link--selected">Task 1</NavLink>
-          <NavLink to="/second" className="nav-link" activeClassName="nav-link--selected">Other page</NavLink>
+          <NavLink to="/redux/first" className="nav-link" activeClassName="nav-link--selected">Task 1</NavLink>
+          <NavLink to="/redux/second" className="nav-link" activeClassName="nav-link--selected">Other page</NavLink>
         </nav>
         <Switch>
           <Redirect exact from="/redux" to="/redux/first" />

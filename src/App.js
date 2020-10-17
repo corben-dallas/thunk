@@ -1,25 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Fragment } from 'react';
+import { Redirect, Route, Switch, NavLink, BrowserRouter as Router } from 'react-router-dom';
+
+import FirstPage from './compnents/Pages/FirstPage';
+import SecondPage from './compnents/Pages/SecondPage';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <Router>
+        <nav className="nav">
+          <NavLink to="/first" className="nav-link" activeClassName="nav-link--selected">Task 1</NavLink>
+          <NavLink to="/second" className="nav-link" activeClassName="nav-link--selected">Other page</NavLink>
+        </nav>
+        <Switch>
+          <Redirect exact from="/" to="/first" />
+          <Route path='/first' component={FirstPage} />
+          <Route path="/second" component={SecondPage} />
+        </Switch>
+      </Router>
+    </Fragment>
   );
 }
 

@@ -13,9 +13,9 @@ function App() {
           <NavLink to="/second" className="nav-link" activeClassName="nav-link--selected">Other page</NavLink>
         </nav>
         <Switch>
-          <Redirect exact from="/" to="/first" />
-          <Route path='/first' component={FirstPage} />
-          <Route path="/second" component={SecondPage} />
+          <Redirect exact from="/redux" to="/redux/first" />
+          <Route path='/redux/first' component={FirstPage} />
+          <Route path="/redux/second" component={SecondPage} />
         </Switch>
       </Router>
     </Fragment>

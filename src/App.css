@@ -39,3 +39,7 @@
 .list__action--edit {
   color: #6368f3;
 }
+
+.list__action--loading {
+  opacity: .3;
+}

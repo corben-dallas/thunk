@@ -7,6 +7,7 @@ const FormInputs = ({
 	isEdit,
 	filter,
 	onFilterChange,
+	isFilterDisabled,
 }) => {
 	return (
 		<>
@@ -32,14 +33,16 @@ const FormInputs = ({
 				>
 					{isEdit ? 'Edit' : 'Add'}
 				</button>
-				<input 
-					type="text"
-					value={filter}
-					name="filter"
-					onChange={onFilterChange}
-					placeholder="Filter by description and price"
-					style={{marginLeft: '25px', width: '200px'}}
-				/>
+				{isFilterDisabled &&
+					<input 
+						type="text"
+						value={filter}
+						name="filter"
+						onChange={onFilterChange}
+						placeholder="Filter by description and price"
+						style={{marginLeft: '25px', width: '200px'}}
+					/>
+				}
 			</div>
 		</>
 	)

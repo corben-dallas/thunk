@@ -1,7 +1,7 @@
 import React from 'react';
 import { nanoid } from 'nanoid';
 
-const List = ({ itemsList, onEdit, onRemove, filterSearchValue }) => {
+const List = ({ itemsList, onEdit, onRemove, filterSearchValue, isLoading, error }) => {
 
 	let filteredCertsList = [...itemsList];
 
@@ -19,6 +19,16 @@ const List = ({ itemsList, onEdit, onRemove, filterSearchValue }) => {
 		});
 	}
 
+	if (isLoading) {
+		return <p>Loading ...</p>;
+	}
+
+	if (!!error.length) {
+		return <p>{error}</p>;
+	}
+
+	const isBtnLoading = false;
+
 	return (
 		<div className="list">
 			{
@@ -33,17 +43,17 @@ const List = ({ itemsList, onEdit, onRemove, filterSearchValue }) => {
 			}
 			{filteredCertsList.map(item => (
 				<div key={nanoid()} className="list__item">
-					<div className="list__description">{item.description}</div>
+					<div className="list__description">{item.description || item.name}</div>
 					<div className="list__price">{item.price}</div>
-					<div className="list__action">
+					<div className={`list__action ${isBtnLoading ? 'list__action--loading' : ''}`}>
 						<div
-							onClick={() => onEdit({ ...item })}
+							onClick={!isBtnLoading ? () => onEdit({ ...item }) : null}
 							className="list__action--edit"
 						>
 							<i className="material-icons">edit</i>
 						</div>
 						<div
-							onClick={() => onRemove(item.id)}
+							onClick={!isBtnLoading ? () => onRemove(item.id) : null}
 							className="list__action--remove"
 						>
 							<i className="material-icons">close</i>

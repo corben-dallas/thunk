@@ -11,7 +11,7 @@ function App() {
       <Router>
         <nav className="nav">
           <NavLink to="/thunk/first" className="nav-link" activeClassName="nav-link--selected">Task 1</NavLink>
-          <NavLink to="/thunk/second" className="nav-link" activeClassName="nav-link--selected">Other page</NavLink>
+          <NavLink to="/thunk/second" className="nav-link" activeClassName="nav-link--selected">Task 2</NavLink>
         </nav>
         <Switch>
           <Redirect exact from="/thunk" to="/thunk/first" />
